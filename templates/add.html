@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD Donor</title>
+    <style>
+        body {
+          background-image: url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ffamilygivingnews.org%2Fwp-content%2Fuploads%2F2019%2F09%2Fblood-bank1.jpg&f=1&nofb=1");
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+        }
+      </style>
+</head>
+<body bgcolor="red" >
+    <h1 align="center"><u>രക്ത ദാനം മഹാ ദാനം<hr> <p style="color:rgb(71, 10, 170)">Donor Adding Page</h1></p><hr></u><br><br>
+    <form align="center" action="display">
+        <input align ="center" type="submit" value="Click Here To Go Back" >
+    </form>
+    <div>
+        {% for message in messages %}
+        <h3 align="center">{{message}}</h3>
+        {% endfor %}
+      </div>
+    
+    <form align="center" action="add" method="POST"><br>
+
+        <img height="150" width="200" src="data:image/jpeg;base64,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">
+        {% csrf_token %}<h3>
+            <div>
+                {% for message in messages %}
+                <h3 align="center">{{message}}</h3>
+                {% endfor %}
+            </div>
+        Enter Donor Name : <input required type="text" name="name1"><br><br>
+        Enter Donor District : <select name="dist">
+            <option value='Kasargod'>Kasargod</option>
+            <option value='Kannur'>Kannur</option>
+            <option value='Wayanad'>Wayanad</option>
+            <option value='Kozhikode'>Kozhikode</option>
+            <option value='Malappuram'>Malappuram</option>
+            <option value='Palakkad'>Palakkad</option>
+            <option value='Thrissur'>Thrissur</option>
+            <option value='Ernakulam'>Ernakulam</option>
+            <option value='Idukki'>Idukki</option>
+            <option value='Kottayam'>Kottayam</option>
+            <option value='Alappuzha'>Alappuzha</option>
+            <option value='Pathanamthitta'>Pathanamthitta</option>
+            <option value='Kollam'>Kollam</option>
+            <option value='Thiruvananthapuram'>Thiruvananthapuram</option>
+
+        </select><br><br>
+        Enter Donor Contact info : <input required type="phone" name="cont" value="+91"><br><br>
+        Choose Donor Blood Groupe :<img height="200" width="200" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvistapointe.net%2Fimages%2Fblood-donation-6.jpg&f=1&nofb=1">
+        <select required name="grp" size="8">
+            <option type="radio" name="blood" value="O+ve">O+ve </option>
+            <option type="radio" name="blood" value="O-ve">O-ve </option>
+            <option type="radio" name="blood" value="A+ve">A+ve </option>
+            <option type="radio" name="blood" value="A-ve">A-ve </option>
+            <option type="radio" name="blood" value="B+ve">B+ve </option>
+            <option type="radio" name="blood" value="B-ve">B-ve </option>
+            <option type="radio" name="blood" value="AB+ve">AB+ve </option>
+            <option type="radio" name="blood" value="AB-ve">AB-ve </option>
+        </select> 
+        <input type="submit" value="ADD">
+        <hr>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+
+<html>
+	<head> <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title> Blood Donors List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready( function () {
+        $('#list1').DataTable();
+    } );
+    </script>
+    <style>
+      body {
+        background-image: url("http://d3n8a8pro7vhmx.cloudfront.net/thenewcivilrightsmovement/pages/11653/meta_images/original/blood_2.jpg?1415997199");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+    </style>
+
+	</head>
+
+	<body bgcolor="silver" >
+    
+    {% csrf_token %}
+     <h1 align="center"> Hello 
+      {% if  user.is_authenticated %}
+      {{user.username}}
+      {% endif %}
+     </h1><p align="center" ><a  href="login">LOGOUT</a></p>
+<form action="add"><p align="center"><input type="submit" value="ADD User" > </p></form>
+{% for message in messages %}
+<h3 align="center">{{message}}</h3>
+{% endfor %}
+</div>
+     
+  <div >
+<table class="table table-striped" id="list1">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Blood Group</th>
+      <th scope="col">District</th>
+      <th scope="col">Contact Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for Donor in res %}
+    <tr>
+      <td scope="row">{{Donor.id}}</td>
+      <td>{{Donor.name}}</td>
+      <td>{{Donor.grp}}</td>
+      <td>{{Donor.dist}}</td>
+      <td>{{Donor.cont}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+
+	</body>
+<html>
